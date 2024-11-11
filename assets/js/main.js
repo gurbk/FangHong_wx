@@ -36,8 +36,7 @@
 
 					// Images (in the format of 'url': 'alignment').
 						images: {
-							'https://cdn.jsdmirror.com/gh/88lin/PicX@master/20240330/mc7.2ppu92ko4cs0.webp': 'center',
-							'https://cdn.jsdmirror.com/gh/88lin/PicX@master/25.png': 'center'
+							'https://cdn.jsdmirror.com/gh/88lin/PicX@master/20240330/mc7.2ppu92ko4cs0.webp': 'full'
 						},
 
 					// Delay.
