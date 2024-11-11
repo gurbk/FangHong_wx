@@ -5,12 +5,21 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0,viewport-fit=cover">
     <title>中转页面</title>
     <style>
+        /* 动态背景渐变动画 */
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
         body {
             margin: 0;
             padding: 0;
             min-height: 100vh;
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #ff7eb3 0%, #ff758c 100%);
+            background: linear-gradient(135deg, #ff7eb3, #ff758c, #ff6c6c, #f25a5a);
+            background-size: 300% 300%;
+            animation: gradientBG 10s ease infinite;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -19,12 +28,12 @@
 
         .container {
             max-width: 90%;
-            width: 100%;
+            width: 600px;
             padding: 2rem;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
             border-radius: 15px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
             text-align: center;
             transition: all 0.3s ease-in-out;
         }
@@ -54,19 +63,25 @@
         }
 
         .url-display {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.25);
             padding: 1rem;
-            border-radius: 8px;
+            border-radius: 10px;
             margin: 1rem 0;
             word-break: break-all;
-            font-size: 0.9rem;
+            font-size: 1.1rem;
             color: #f0f0f0;
-            box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.3);
+            font-weight: 500;
+            box-shadow: inset 0 1px 5px rgba(255, 255, 255, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .url-display:hover {
+            transform: scale(1.05);
         }
 
         p {
             margin: 0.3rem 0;
-            font-size: 0.95rem;
+            font-size: 1rem;
             color: #f0f0f0;
             line-height: 1.4;
         }
@@ -79,7 +94,7 @@
             border-radius: 50%;
             border-top-color: #fff;
             animation: spin 1s linear infinite;
-            margin: 1rem auto;
+            margin: 1.5rem auto;
         }
 
         @keyframes spin {
@@ -96,8 +111,8 @@
             }
 
             .url-display {
-                font-size: 0.85rem;
-                padding: 0.8rem;
+                font-size: 1rem;
+                padding: 0.9rem;
             }
 
             .loading {
@@ -148,7 +163,7 @@
         document.getElementById("tips").innerHTML = "<h2>正在跳转...</h2>";
         setTimeout(() => {
             location.href = decodeURIComponent(urlParmStr);
-        }, 2000);
+        }, 500);
     }
     </script>
     <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
