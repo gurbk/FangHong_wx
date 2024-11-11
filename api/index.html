@@ -9,34 +9,28 @@
     <div id="tips" style="font-size:30px;text-align: center;line-height: 50px;"></div>
     <script>
     var url = document.location.toString();
-    var urlParmStr = url.slice(url.indexOf('=')+1);
+    var urlParmStr = url.slice(url.indexOf('=') + 1);
     var ua = navigator.userAgent.toLowerCase();
     var isQQ = ua.indexOf('qq') != -1;
     var isWeixin = ua.indexOf('micromessenger') != -1;
     var isAndroid = ua.indexOf('android') != -1;
     var isIos = (ua.indexOf('iphone') != -1) || (ua.indexOf('ipad') != -1);
 
-    var notice_openBrowser = "<h2>请点击右上角，通过浏览器打开本页面。</h2><br />不得不看的内容，复制到浏览器打开吧：<b style=\"color:pink\"> + decodeURIComponent(urlParmStr) + </b>"
+    var notice_openBrowser = "<h2>请点击右上角，通过浏览器打开本页面。</h2><br />不得不看的内容，复制到浏览器打开吧：<b style=\"color:pink\">" + decodeURIComponent(urlParmStr) + "</b>";
 
-    // 判断是不是在微信客户端打开
-    if(isWeixin || isQQ) {
-    // 判断是在Android的微信客户端还是Ios的微信客户端
-    if (isAndroid) {
-    document.getElementById("tips").innerHTML=notice_openBrowser;
-    }else if (isIos) {
-    document.getElementById("tips").innerHTML=notice_openBrowser;
-    }else{
-    document.getElementById("tips").innerHTML=notice_openBrowser;
-    }
+    // 判断是否在微信或QQ客户端打开
+    if (isWeixin || isQQ) {
+        document.getElementById("tips").innerHTML = notice_openBrowser;
     } else {
-    // 不是微信客户端，直接可以访问链接
-    if (urlParmStr == url){
-        urlParmStr = "pro.gleeze.com";
+        // 不是微信或QQ客户端，直接可以访问链接
+        if (urlParmStr == url) {
+            urlParmStr = "https://pro.gleeze.com"; // 设置默认目标网站 URL
+        }
+        console.log(urlParmStr);
+        location.href = decodeURIComponent(urlParmStr);
     }
-    console.log(urlParmStr);
-    location.href=urlParmStr;
-    }
-</script>
-    <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script><script>LA.init({id:"K8YSQIj3WDtj9gG6",ck:"K8YSQIj3WDtj9gG6"})</script>
+    </script>
+    <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+    <script>LA.init({id:"K8YSQIj3WDtj9gG6",ck:"K8YSQIj3WDtj9gG6"})</script>
 </body>
 </html>
