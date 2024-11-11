@@ -257,11 +257,11 @@ a {
   -ms-transition: border-bottom-color 0.2s ease, color 0.2s ease;
   transition: border-bottom-color 0.2s ease, color 0.2s ease;
   border-bottom: dotted 1px rgba(255, 255, 255, 0.25);
-  color: #1cb495;
+  color: #ff6817;
   text-decoration: none; }
   a:hover {
     border-bottom-color: transparent;
-    color: #1cb495 !important;
+    color: #ff6817 !important;
     text-decoration: none; }
 
 strong, b {
@@ -284,8 +284,11 @@ h1, h2, h3, h4, h5, h6 {
     text-decoration: none; }
 
 h1 {
-  font-size: 2.5em;
-  line-height: 1.25em; }
+  font-size: 3em;
+  background: -webkit-linear-gradient(45deg,#009ff7,#78fadc,#008269,#db6c31);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0 0 0.55em 0; }
 
 h2 {
   font-size: 1.75em;
@@ -479,7 +482,7 @@ form {
       transform: scale(1);
       opacity: 1; }
     form .message.success {
-      color: #1cb495; }
+      color: #ff6817; }
       form .message.success:before {
         content: '\f00c'; }
     form .message.failure {
@@ -608,7 +611,7 @@ textarea {
     -ms-animation: focus 0.1s;
     animation: focus 0.1s;
     background-color: rgba(255, 255, 255, 0.125);
-    border-color: #1cb495; }
+    border-color: #ff6817; }
 
 select {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' preserveAspectRatio='none' viewBox='0 0 40 40'%3E%3Cpath d='M9.4,12.3l10.4,10.4l10.4-10.4c0.2-0.2,0.5-0.4,0.9-0.4c0.3,0,0.6,0.1,0.9,0.4l3.3,3.3c0.2,0.2,0.4,0.5,0.4,0.9 c0,0.4-0.1,0.6-0.4,0.9L20.7,31.9c-0.2,0.2-0.5,0.4-0.9,0.4c-0.3,0-0.6-0.1-0.9-0.4L4.3,17.3c-0.2-0.2-0.4-0.5-0.4-0.9 c0-0.4,0.1-0.6,0.4-0.9l3.3-3.3c0.2-0.2,0.5-0.4,0.9-0.4S9.1,12.1,9.4,12.3z' fill='rgba(255, 255, 255, 0.35)' /%3E%3C/svg%3E");
@@ -688,14 +691,14 @@ input[type="radio"] {
       width: 1.65em; }
   input[type="checkbox"]:checked + label:before,
   input[type="radio"]:checked + label:before {
-    background: #1cb495;
-    border-color: #1cb495;
+    background: #ff6817;
+    border-color: #ff6817;
     color: #ffffff;
     content: '\f00c'; }
   input[type="checkbox"]:focus + label:before,
   input[type="radio"]:focus + label:before {
-    border-color: #1cb495;
-    box-shadow: 0 0 0 2px #1cb495; }
+    border-color: #ff6817;
+    box-shadow: 0 0 0 2px #ff6817; }
 
 input[type="checkbox"] + label:before {
   border-radius: 6px; }
@@ -737,7 +740,9 @@ button,
   -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, opacity 0.2s ease-in-out;
   -ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, opacity 0.2s ease-in-out;
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, opacity 0.2s ease-in-out;
-  background-color: #1cb495;
+  background-color: #4A9DEC;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 添加阴影 */
+  transition: all 0.3s ease; /* 平滑过渡效果 */
   border-radius: 6px;
   border: 0;
   color: #ffffff !important;
@@ -755,7 +760,8 @@ button,
   input[type="button"]:hover,
   button:hover,
   .button:hover {
-    background-color: #1fcaa7; }
+    background-color: #ff6817;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);}
   input[type="submit"]:active,
   input[type="reset"]:active,
   input[type="button"]:active,
@@ -779,6 +785,23 @@ button,
     button,
     .button {
       padding: 0; } }
+
+/* 新增文本框样式 */
+input.text-black {
+  border: 2px solid transparent;
+  padding-left: 0.8em;
+  outline: none;
+  overflow: hidden;
+  background-color: #f3f3f300;
+  border-radius: 10px;
+  transition: all 0.5s;
+}
+
+input.text-black:hover,
+input.text-black:focus {
+  border: 2px solid #4A9DEC;
+  box-shadow: 0px 0px 0px 7px rgba(74, 157, 236, 0.2);
+}
 
 /* Header */
 #header h1 {
