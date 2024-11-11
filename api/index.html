@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0,viewport-fit=cover">
-    <title>中转页面</title>
+    <title>中转界面</title>
     <style>
         /* 动态渐变背景动画 */
         @keyframes Gradient {
@@ -109,7 +109,10 @@
                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
             </svg>
         </div>
-        <div id="tips"></div>
+        <div id="tips">
+            <h2>正在跳转...</h2>
+            <p>请稍候，正在为您跳转到目标网站。</p>
+        </div>
     </div>
 
     <script>
@@ -135,7 +138,9 @@
         if (urlParmStr === url) {
             urlParmStr = "https://pro.gleeze.com"; // 设置默认目标网站 URL
         }
-        location.href = decodeURIComponent(urlParmStr); // 立即跳转，无需“正在跳转”提示
+        setTimeout(function() {
+            location.href = decodeURIComponent(urlParmStr); // 等待后自动跳转
+        }, 500); // 5毫秒延时，展示“正在跳转”提示
     }
     </script>
 </body>
