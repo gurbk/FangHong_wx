@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0,viewport-fit=cover">
     <title>中转页面</title>
     <style>
-        /* 动态背景渐变动画 */
-        @keyframes gradientBG {
+        /* 动态渐变背景动画 */
+        @keyframes Gradient {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
@@ -17,20 +17,20 @@
             padding: 0;
             min-height: 100vh;
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #ff7eb3, #ff758c, #ff6c6c, #f25a5a);
-            background-size: 300% 300%;
-            animation: gradientBG 10s ease infinite;
+            background: linear-gradient(150deg, #e8d8b9 0%, #eccec5 25%, #a3e9eb 50%, #bdbdf0 75%, #eec1ea 100%);
+            background-size: 400% 400%;
+            animation: Gradient 16s ease infinite;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: #fff;
+            color: #000; /* 字体颜色改为黑色 */
         }
 
         .container {
             max-width: 90%;
             width: 600px;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.1);
+            padding: 2.5rem;
+            background: rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(12px);
             border-radius: 15px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
@@ -39,9 +39,9 @@
         }
 
         .logo {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 1rem;
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 1.5rem;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -50,26 +50,26 @@
         }
 
         .logo svg {
-            width: 40px;
-            height: 40px;
-            fill: #fff;
+            width: 45px;
+            height: 45px;
+            fill: #000; /* 符号颜色改为黑色 */
         }
 
         h2 {
             margin: 0 0 1rem;
-            font-size: 1.8rem;
+            font-size: 2rem; /* 字体更大 */
             font-weight: 600;
-            color: #f8f8f8;
+            color: #000;
         }
 
         .url-display {
-            background: rgba(255, 255, 255, 0.25);
-            padding: 1rem;
+            background: rgba(255, 255, 255, 0.35);
+            padding: 1.2rem;
             border-radius: 10px;
-            margin: 1rem 0;
+            margin: 1.2rem 0;
             word-break: break-all;
-            font-size: 1.1rem;
-            color: #f0f0f0;
+            font-size: 1.2rem; /* 增大字体 */
+            color: #000; /* 链接文本颜色改为黑色 */
             font-weight: 500;
             box-shadow: inset 0 1px 5px rgba(255, 255, 255, 0.3);
             transition: transform 0.3s ease;
@@ -81,24 +81,9 @@
 
         p {
             margin: 0.3rem 0;
-            font-size: 1rem;
-            color: #f0f0f0;
-            line-height: 1.4;
-        }
-
-        .loading {
-            display: inline-block;
-            width: 50px;
-            height: 50px;
-            border: 3px solid rgba(255,255,255,.3);
-            border-radius: 50%;
-            border-top-color: #fff;
-            animation: spin 1s linear infinite;
-            margin: 1.5rem auto;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
+            font-size: 1.1rem; /* 增大字体 */
+            color: #000;
+            line-height: 1.5;
         }
 
         @media (max-width: 480px) {
@@ -107,18 +92,12 @@
             }
 
             h2 {
-                font-size: 1.5rem;
+                font-size: 1.8rem;
             }
 
             .url-display {
-                font-size: 1rem;
-                padding: 0.9rem;
-            }
-
-            .loading {
-                width: 40px;
-                height: 40px;
-                margin-top: 1rem;
+                font-size: 1.1rem;
+                padding: 1rem;
             }
         }
     </style>
@@ -131,7 +110,6 @@
             </svg>
         </div>
         <div id="tips"></div>
-        <div class="loading"></div>
     </div>
 
     <script>
@@ -140,8 +118,6 @@
     var ua = navigator.userAgent.toLowerCase();
     var isQQ = ua.indexOf('qq') != -1;
     var isWeixin = ua.indexOf('micromessenger') != -1;
-    var isAndroid = ua.indexOf('android') != -1;
-    var isIos = (ua.indexOf('iphone') != -1) || (ua.indexOf('ipad') != -1);
 
     var notice_openBrowser = `
         <h2>请在浏览器中打开</h2>
@@ -155,15 +131,11 @@
 
     if (isWeixin || isQQ) {
         document.getElementById("tips").innerHTML = notice_openBrowser;
-        document.querySelector('.loading').style.display = 'none';
     } else {
-        if (urlParmStr == url) {
-            urlParmStr = "https://pro.gleeze.com";
+        if (urlParmStr === url) {
+            urlParmStr = "https://pro.gleeze.com"; // 设置默认目标网站 URL
         }
-        document.getElementById("tips").innerHTML = "<h2>正在跳转...</h2>";
-        setTimeout(() => {
-            location.href = decodeURIComponent(urlParmStr);
-        }, 500);
+        location.href = decodeURIComponent(urlParmStr); // 立即跳转，无需“正在跳转”提示
     }
     </script>
     <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
