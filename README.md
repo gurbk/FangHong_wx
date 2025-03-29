@@ -6,4 +6,4 @@
 
 ## 使用方法
 
-进入该网址：[https://gurbk.github.io/Domain_redirection](https://gurbk.github.io/Domain_redirection)
+进入该网址：[https://gurbk.github.io/FangHong_wx](https://gurbk.github.io/FangHong_wx)
